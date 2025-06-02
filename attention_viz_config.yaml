@@ -1,0 +1,17 @@
+visualization:
+  default_colormap: "viridis"
+  figure_size: [12, 8]
+  dpi: 300
+  interactive: true
+  save_format: "png"
+
+export:
+  default_format: "json"
+  include_metadata: true
+  compression: false
+
+model:
+  max_length: 512
+  batch_size: 1
+  device: "auto"
+  cache_attention: true 

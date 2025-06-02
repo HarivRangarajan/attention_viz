@@ -1,0 +1,2 @@
+[console_scripts]
+attention-viz = attention_viz.cli:main
