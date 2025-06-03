@@ -57,26 +57,6 @@ Compare attention patterns across different transformer layers:
 Analyze what different attention heads focus on:
 ![Head Specialization](examples/outputs/head_specialization.png)
 
-### Inspectus Visualizations
-Advanced visualizations using the inspectus library:
-
-<table>
-<tr>
-<td align="center">
-<strong>Attention Matrix</strong><br>
-<img src="examples/outputs/inspectus_plots/attention_attention_matrix.png" width="200"/>
-</td>
-<td align="center">
-<strong>Query Token Heatmap</strong><br>
-<img src="examples/outputs/inspectus_plots/attention_query_token_heatmap.png" width="200"/>
-</td>
-<td align="center">
-<strong>Key Token Heatmap</strong><br>
-<img src="examples/outputs/inspectus_plots/attention_key_token_heatmap.png" width="200"/>
-</td>
-</tr>
-</table>
-
 ### Interactive Visualizations
 The library also generates interactive HTML visualizations with zoom, hover, and filtering capabilities (example: `basic_attention.html` - 4.4MB interactive plot).
 
