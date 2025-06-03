@@ -65,12 +65,14 @@ venv.bak/
 ehthumbs.db
 Thumbs.db
 
-# Output directories (examples)
-examples/outputs/
+# Generated outputs (but allow examples/outputs/ for README gallery)
 *.html
-*.png
 *.json
 attention_reports/
+
+# Allow examples/outputs for gallery
+!examples/outputs/
+!examples/outputs/**
 
 # Logs
 *.log
