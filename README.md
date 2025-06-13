@@ -1,10 +1,10 @@
-# Attention Viz 🔍
+# Attention Viz
 
 A comprehensive toolkit for visualizing and inspecting attention patterns in transformer models. This module provides intuitive visualizations and analysis tools to understand how attention mechanisms work in Large Language Models (LLMs) and other transformer architectures.
 
 Built with a modular, research-ready architecture that supports multiple visualization backends, advanced analysis techniques, and seamless integration with popular transformer libraries.
 
-## 🏗️ Library Architecture
+## Library Architecture
 
 This library is built with a clean, modular architecture:
 
