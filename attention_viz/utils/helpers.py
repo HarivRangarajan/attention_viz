@@ -45,7 +45,17 @@ def load_model_and_tokenizer(
     
     # Load model based on model type
     try:
-        if "gpt" in model_name.lower():
+        if "llama" in model_name.lower():
+            # For Llama models, use specific parameters
+            model = AutoModel.from_pretrained(
+                model_name, 
+                config=config, 
+                torch_dtype=torch.float32, 
+                device_map=None,
+                **kwargs
+            )
+            print(f"✅ Successfully loaded {model_name} with float32")
+        elif "gpt" in model_name.lower():
             model = GPT2LMHeadModel.from_pretrained(model_name, config=config, **kwargs)
         elif "bert" in model_name.lower():
             model = BertModel.from_pretrained(model_name, config=config, **kwargs)
@@ -370,5 +380,7 @@ def find_supported_models() -> List[str]:
         "distilbert-base-uncased",
         "albert-base-v2",
         "t5-small",
-        "t5-base"
+        "t5-base",
+        "meta-llama/Llama-3-8B",
+        "meta-llama/Llama-3-8B-Instruct"
     ] 

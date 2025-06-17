@@ -2,6 +2,8 @@
 
 import os
 import torch
+import matplotlib
+matplotlib.use('Agg')  # Use non-interactive backend for headless servers
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
@@ -26,7 +28,7 @@ class AttentionVisualizer:
     
     def __init__(
         self, 
-        model: PreTrainedModel, 
+        model: Union[PreTrainedModel, object], 
         tokenizer: PreTrainedTokenizer, 
         device: str = "auto",
         config: Optional[Config] = None
@@ -35,7 +37,7 @@ class AttentionVisualizer:
         Initialize the attention visualizer.
         
         Args:
-            model: Pre-trained transformer model
+            model: Pre-trained transformer model or pipeline
             tokenizer: Corresponding tokenizer  
             device: Device to run inference on
             config: Configuration object for visualization settings

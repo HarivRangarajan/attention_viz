@@ -9,16 +9,31 @@ from transformers import PreTrainedModel, PreTrainedTokenizer
 class AttentionExtractor:
     """Extract and process attention weights from transformer models."""
     
-    def __init__(self, model: PreTrainedModel, tokenizer: PreTrainedTokenizer, device: str = "auto"):
+    def __init__(self, model: Union[PreTrainedModel, object], tokenizer: PreTrainedTokenizer, device: str = "auto"):
         """
         Initialize the attention extractor.
         
         Args:
-            model: Pre-trained transformer model
+            model: Pre-trained transformer model or pipeline
             tokenizer: Corresponding tokenizer
             device: Device to run inference on ('auto', 'cpu', 'cuda')
         """
-        self.model = model
+        # Check if this is an OpenAI model (string instead of actual model)
+        if isinstance(model, str):
+            raise ValueError(f"AttentionExtractor cannot work with OpenAI models. Got model: {model}")
+        
+        # Handle both PreTrainedModel and TextGenerationPipeline
+        if hasattr(model, 'model'):
+            # This is likely a pipeline, extract the underlying model
+            self.model = model.model
+        else:
+            # This is already a PreTrainedModel
+            self.model = model
+        
+        # Verify we have a valid PyTorch model
+        if not hasattr(self.model, 'config'):
+            raise ValueError(f"Invalid model type: {type(self.model)}. Expected a HuggingFace PreTrainedModel.")
+            
         self.tokenizer = tokenizer
         self.device = self._get_device(device)
         self.model.to(self.device)
