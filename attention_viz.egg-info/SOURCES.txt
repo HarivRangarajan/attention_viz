@@ -11,12 +11,15 @@ attention_viz.egg-info/requires.txt
 attention_viz.egg-info/top_level.txt
 attention_viz/core/__init__.py
 attention_viz/core/analyzer.py
+attention_viz/core/attrieval.py
 attention_viz/core/extractor.py
 attention_viz/core/visualizer.py
 attention_viz/utils/__init__.py
 attention_viz/utils/config.py
 attention_viz/utils/helpers.py
 examples/__init__.py
+examples/attrieval_demo.py
 examples/basic_usage.py
+examples/simple_attrieval_test.py
 tests/__init__.py
 tests/test_basic.py
